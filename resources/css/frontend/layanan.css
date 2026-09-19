@@ -1,0 +1,67 @@
+:root {
+            --primary: #ff6b35;
+            --secondary: #1e3a5f;
+            --dark: #0f172a;
+        }
+        body { font-family: 'Poppins', sans-serif; background: #f8fafc; }
+        .navbar {
+            background: var(--dark);
+            padding: 15px 0;
+            border-bottom: 2px solid var(--primary);
+        }
+        .navbar-brand img { height: 50px; }
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .page-header {
+            background: linear-gradient(135deg, var(--dark), var(--secondary));
+            padding: 150px 0 80px;
+            color: white;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+        .page-header span { color: var(--primary); }
+        .services-section { padding: 100px 0; }
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255,107,53,0.2);
+        }
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            margin: 0 auto 25px;
+        }
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+.page-style-1 { color: white; font-weight: 800; }
+.page-style-2 { color: var(--primary); font-size: 0.75rem; }

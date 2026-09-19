@@ -1,0 +1,15 @@
+    @vite('resources/css/auth-pages/register.css')
+<x-guest-layout>
+<div class="auth-card-header"><div class="auth-kicker">Mulai lebih teratur</div><h2>Buat akun bengkel</h2><p>Simpan kendaraan dan booking servis Anda dalam satu tempat.</p></div>
+<form method="POST" action="{{ route('register') }}">
+    @csrf
+    <div class="auth-field"><label for="name">Nama lengkap</label><input id="name" class="auth-input" type="text" name="name" value="{{ old('name') }}" required autofocus autocomplete="name"><x-input-error :messages="$errors->get('name')" class="auth-error" /></div>
+    <div class="auth-field"><label for="email">Email</label><div class="auth-input-wrap has-icon"><span class="auth-input-icon" aria-hidden="true">@</span><input id="email" class="auth-input" type="email" name="email" value="{{ old('email') }}" required autocomplete="email"></div><x-input-error :messages="$errors->get('email')" class="auth-error" /></div>
+    <div class="auth-field"><label for="username">Username <span  class="page-style-1">(opsional)</span></label><div class="auth-input-wrap has-icon"><span class="auth-input-icon" aria-hidden="true">&#9679;</span><input id="username" class="auth-input" type="text" name="username" value="{{ old('username') }}" autocomplete="username"></div><x-input-error :messages="$errors->get('username')" class="auth-error" /></div>
+    <div class="auth-field"><label for="no_hp">Nomor telepon <span  class="page-style-2">(opsional)</span></label><input id="no_hp" class="auth-input" type="text" name="no_hp" value="{{ old('no_hp') }}" autocomplete="tel"><x-input-error :messages="$errors->get('no_hp')" class="auth-error" /></div>
+    <div class="auth-field"><label for="password">Password</label><div class="auth-input-wrap"><input id="password" class="auth-input" type="password" name="password" required autocomplete="new-password"><button type="button" class="auth-toggle-password" data-target="password" onclick="togglePasswordVisibility(this)" aria-label="Tampilkan password" title="Tampilkan password"><span data-eye-icon>&#128065;</span></button></div><x-input-error :messages="$errors->get('password')" class="auth-error" /></div>
+    <div class="auth-field"><label for="password_confirmation">Ulangi password</label><div class="auth-input-wrap"><input id="password_confirmation" class="auth-input" type="password" name="password_confirmation" required autocomplete="new-password"><button type="button" class="auth-toggle-password" data-target="password_confirmation" onclick="togglePasswordVisibility(this)" aria-label="Tampilkan password" title="Tampilkan password"><span data-eye-icon>&#128065;</span></button></div><x-input-error :messages="$errors->get('password_confirmation')" class="auth-error" /></div>
+    <button class="auth-button page-style-3"  type="submit">Buat akun <span aria-hidden="true">&rarr;</span></button>
+</form>
+<div class="auth-bottom">Sudah punya akun? <a class="auth-link" href="{{ route('login') }}">Masuk di sini</a></div>
+</x-guest-layout>

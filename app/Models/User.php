@@ -1,0 +1,91 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
+{
+    use HasFactory, Notifiable;
+
+    protected $fillable = [
+        'name',
+        'email',
+        'username',
+        'no_hp',
+        'role',
+        'photo',
+        'password',
+    ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
+
+    // ============ RELASI ============
+
+    // Kendaraan milik user
+    public function vehicles()
+    {
+        return $this->hasMany(Vehicle::class, 'user_id');
+    }
+
+    // Booking yang dibuat user (customer)
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class, 'user_id');
+    }
+
+    // Booking sebagai mekanik
+    public function mechanicBookings()
+    {
+        return $this->hasMany(Booking::class, 'mechanic_id');
+    }
+
+    // Transaksi user
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'user_id');
+    }
+
+    // Notifikasi user
+    public function notifications()
+    {
+        return $this->hasMany(\App\Models\Notification::class, 'user_id');
+    }
+
+    // Audit logs
+    public function auditLogs()
+    {
+        return $this->hasMany(AuditLog::class, 'user_id');
+    }
+
+    // Helper: cek role
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isCustomer()
+    {
+        return $this->role === 'customer';
+    }
+
+    public function isMekanik()
+    {
+        return $this->role === 'mekanik';
+    }
+
+    public function isKasir()
+    {
+        return $this->role === 'kasir';
+    }
+}

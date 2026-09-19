@@ -1,0 +1,43 @@
+import { defineConfig } from "vite";
+import laravel from "laravel-vite-plugin";
+
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: [
+                "resources/css/app.css",
+                "resources/css/frontend/frontend.css",
+                "resources/css/components/dropdown.css",
+                "resources/css/backend/show.css",
+                "resources/css/backend/profile.css",
+                "resources/css/backend/jobs.css",
+                "resources/css/backend/history.css",
+                "resources/css/backend/edit.css",
+                "resources/css/backend/dashboard.css",
+                "resources/css/backend/bookings.css",
+                "resources/css/auth-pages/verify-email.css",
+                "resources/css/auth-pages/reset-password.css",
+                "resources/css/auth-pages/register.css",
+                "resources/css/auth-pages/login.css",
+                "resources/css/auth-pages/forgot-password.css",
+                "resources/css/auth-pages/confirm-password.css",
+                "resources/css/backend/admin.css",
+                "resources/css/backend/cashier.css",
+                "resources/css/backend/customer.css",
+                "resources/css/backend/index.css",
+                "resources/css/backend/mechanic.css",
+                "resources/css/backend/settings.css",
+                "resources/css/frontend/home.css",
+                "resources/css/frontend/layanan.css",
+                "resources/css/frontend/products.css",
+                "resources/css/frontend/produk.css",
+                "resources/css/frontend/tentang.css",
+                "resources/css/frontend/kontak.css",
+                "resources/css/backend/backend.css",
+                "resources/css/auth.css",
+                "resources/js/app.js",
+            ],
+            refresh: true,
+        }),
+    ],
+});

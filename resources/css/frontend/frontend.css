@@ -1,0 +1,58 @@
+/* Frontend UI: public landing pages, products, services, and contact. */
+:root {
+    --frontend-ink: #102f35;
+    --frontend-teal: #176e6a;
+    --frontend-amber: #e7ad3d;
+    --frontend-paper: #f3f8f6;
+    --frontend-muted: #61777a;
+}
+
+.frontend-page {
+    color: var(--frontend-ink);
+    background: var(--frontend-paper);
+    overflow-x: hidden;
+}
+.frontend-page a {
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+.frontend-container {
+    width: min(1180px, calc(100% - 40px));
+    margin-inline: auto;
+}
+.frontend-section {
+    padding: clamp(64px, 8vw, 110px) 0;
+}
+.frontend-eyebrow {
+    color: var(--frontend-teal);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+.frontend-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 12px;
+    padding: 13px 20px;
+    font-weight: 700;
+    text-decoration: none;
+}
+.frontend-button-primary {
+    color: #fff;
+    background: var(--frontend-teal);
+}
+.frontend-button-primary:hover {
+    color: #fff;
+    background: #0d5e5a;
+    transform: translateY(-2px);
+}
+@media (max-width: 768px) {
+    .frontend-container {
+        width: min(100% - 32px, 680px);
+    }
+}
