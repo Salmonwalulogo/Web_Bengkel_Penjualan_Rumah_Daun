@@ -5,7 +5,6 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\SettingController as AdminSettingController; 
 use App\Http\Controllers\Customer\CustomerDashboardController;
-use App\Http\Controllers\Mechanic\MechanicDashboardController;
 use App\Http\Controllers\Cashier\CashierDashboardController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactMessageController;
@@ -76,7 +75,6 @@ Route::middleware(['auth'])->group(function () {
         $user = auth()->user();
         return match($user->role) {
             'admin'    => redirect()->route('admin.dashboard'),
-            'mekanik'  => redirect()->route('mekanik.dashboard'),
             'kasir'    => redirect()->route('kasir.dashboard'),
             'customer' => redirect()->route('customer.dashboard'),
             default    => redirect()->route('login'),
@@ -158,26 +156,6 @@ Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer
     Route::post('/notifikasi/{notification}/read', [CustomerDashboardController::class, 'markNotificationAsRead'])->name('notifications.read');
 });
 
-
-/*
-|--------------------------------------------------------------------------
-| Mechanic Routes (Khusus Role: mekanik)
-|--------------------------------------------------------------------------
-*/
-/*
-|--------------------------------------------------------------------------
-| Mechanic Routes (Khusus Role: mekanik)
-|--------------------------------------------------------------------------
-*/
-Route::middleware(['auth', 'role:mekanik'])->prefix('mekanik')->name('mekanik.')->group(function () {
-    Route::get('/dashboard', [MechanicDashboardController::class, 'index'])->name('dashboard');
-    Route::get('/bookings', [MechanicDashboardController::class, 'bookings'])->name('bookings');
-    Route::get('/jobs', [MechanicDashboardController::class, 'jobs'])->name('jobs');
-    Route::get('/history', [MechanicDashboardController::class, 'history'])->name('history');
-    
-    // Update status booking
-    Route::put('/bookings/{booking}/status', [MechanicDashboardController::class, 'updateStatus'])->name('bookings.updateStatus');
-});
 
 /*
 |--------------------------------------------------------------------------

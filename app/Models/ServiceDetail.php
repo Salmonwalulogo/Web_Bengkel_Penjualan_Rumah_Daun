@@ -13,7 +13,6 @@ class ServiceDetail extends Model
 
     protected $fillable = [
         'booking_id',
-        'mechanic_id',
         'inspection',
         'work_description',
         'sparepart_used',
@@ -31,9 +30,4 @@ class ServiceDetail extends Model
         return $this->belongsTo(Booking::class, 'booking_id');
     }
 
-    // Relasi ke mekanik
-    public function mechanic()
-    {
-        return $this->belongsTo(User::class, 'mechanic_id');
-    }
 }

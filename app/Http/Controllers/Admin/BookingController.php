@@ -14,7 +14,7 @@ class BookingController extends Controller
 {
     public function index()
     {
-        $bookings = Booking::with(['user', 'vehicle', 'service', 'mechanic'])
+        $bookings = Booking::with(['user', 'vehicle', 'service'])
                           ->latest()
                           ->paginate(10);
         return view('backend.admin.bookings.index', compact('bookings'));
@@ -24,9 +24,8 @@ class BookingController extends Controller
     {
         $customers = User::where('role', 'customer')->get();
         $services = Service::where('status', 'active')->get();
-        $mechanics = User::where('role', 'mekanik')->get();
         $vehicles = Vehicle::all();
-        return view('backend.admin.bookings.create', compact('customers', 'services', 'mechanics', 'vehicles'));
+        return view('backend.admin.bookings.create', compact('customers', 'services', 'vehicles'));
     }
 
     public function store(Request $request)
@@ -35,7 +34,6 @@ class BookingController extends Controller
             'user_id' => 'required|exists:users,id',
             'vehicle_id' => 'required|exists:vehicles,id',
             'service_id' => 'required|exists:services,id',
-            'mechanic_id' => 'nullable|exists:users,id',
             'booking_date' => 'required|date',
             'booking_time' => 'required',
             'complaint' => 'nullable|string',
@@ -51,7 +49,7 @@ class BookingController extends Controller
 
     public function show(Booking $booking)
     {
-        $booking->load(['user', 'vehicle', 'service', 'mechanic', 'serviceDetails.mechanic']);
+        $booking->load(['user', 'vehicle', 'service']);
         return view('backend.admin.bookings.show', compact('booking'));
     }
 
@@ -61,9 +59,8 @@ class BookingController extends Controller
         $services = Service::where('status', 'active')
             ->orWhere('id', $booking->service_id)
             ->get();
-        $mechanics = User::where('role', 'mekanik')->get();
         $vehicles = Vehicle::all();
-        return view('backend.admin.bookings.edit', compact('booking', 'customers', 'services', 'mechanics', 'vehicles'));
+        return view('backend.admin.bookings.edit', compact('booking', 'customers', 'services', 'vehicles'));
     }
 
     public function update(Request $request, Booking $booking)
@@ -78,10 +75,6 @@ class BookingController extends Controller
                 Rule::exists('vehicles', 'id')->where(fn ($query) => $query->where('user_id', $request->input('user_id'))),
             ],
             'service_id' => 'required|exists:services,id',
-            'mechanic_id' => [
-                'nullable',
-                Rule::exists('users', 'id')->where(fn ($query) => $query->where('role', 'mekanik')),
-            ],
             'booking_date' => 'required|date',
             'booking_time' => 'required|date_format:H:i',
             'complaint' => 'nullable|string|max:2000',

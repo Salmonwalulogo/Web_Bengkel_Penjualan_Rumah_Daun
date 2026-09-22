@@ -20,7 +20,6 @@
                         <th>Customer</th>
                         <th>Kendaraan</th>
                         <th>Layanan</th>
-                        <th>Mekanik</th>
                         <th>Tanggal</th>
                         <th>Status</th>
                         <th class="text-center">Aksi</th>
@@ -35,7 +34,6 @@
                             <span class="badge bg-dark">{{ $booking->vehicle->plate_number ?? '-' }}</span>
                         </td>
                         <td>{{ $booking->service->name ?? '-' }}</td>
-                        <td>{{ $booking->mechanic->name ?? 'Belum ditugaskan' }}</td>
                         <td>
                             <div>{{ $booking->booking_date->format('d/m/Y') }}</div>
                             <small class="text-muted">{{ $booking->booking_time }}</small>
@@ -71,7 +69,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="8" class="text-center text-muted py-4">
+                        <td colspan="7" class="text-center text-muted py-4">
                             <i class="fas fa-calendar fa-3x mb-3 d-block"></i>
                             Belum ada data booking
                         </td>

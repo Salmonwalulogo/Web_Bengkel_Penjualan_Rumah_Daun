@@ -5,9 +5,13 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="page-heading">
-        <h1>Dashboard Kasir</h1>
-        <p>Pantau pesanan dan pembayaran bengkel dalam satu tampilan.</p>
+    <div class="dashboard-hero cashier-hero mb-4">
+        <div>
+            <span class="dashboard-eyebrow"><i class="fas fa-clock me-2"></i>SHIFT KASIR HARI INI</span>
+            <h1>Halo, {{ auth()->user()->name }}!</h1>
+            <p>Semua pesanan, pembayaran, dan invoice bengkel ada dalam satu kendali.</p>
+        </div>
+        <div class="hero-date"><i class="fas fa-calendar-alt me-2"></i>{{ now()->translatedFormat('d F Y') }}</div>
     </div>
 
     <div class="row">
@@ -63,9 +67,10 @@
         </div>
     </div>
 
-    <div class="welcome-panel">
-        <i class="fas fa-cash-register me-2"></i>
-        Selamat datang, {{ auth()->user()->name }}! Proses pembayaran dan kelola pesanan di sini.
+    <div class="quick-actions mb-4">
+        <a href="{{ route('kasir.orders') }}"><i class="fas fa-shopping-bag"></i><span>Kelola Pesanan</span><small>Periksa booking masuk</small></a>
+        <a href="{{ route('kasir.payments') }}"><i class="fas fa-wallet"></i><span>Catat Pembayaran</span><small>Update status bayar</small></a>
+        <a href="{{ route('kasir.invoices') }}"><i class="fas fa-file-invoice"></i><span>Lihat Invoice</span><small>Cetak bukti transaksi</small></a>
     </div>
 </div>
 @endsection

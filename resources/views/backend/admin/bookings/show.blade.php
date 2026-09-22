@@ -38,10 +38,6 @@
                         <p class="text-muted mb-0">{{ $booking->service->name ?? '-' }}</p>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <strong>Mekanik</strong>
-                        <p class="text-muted mb-0">{{ $booking->mechanic->name ?? 'Belum ditugaskan' }}</p>
-                    </div>
-                    <div class="col-md-6 mb-3">
                         <strong>Tanggal</strong>
                         <p class="text-muted mb-0">{{ $booking->booking_date->format('d F Y') }}</p>
                     </div>

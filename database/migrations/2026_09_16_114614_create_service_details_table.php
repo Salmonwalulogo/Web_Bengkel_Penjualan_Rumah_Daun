@@ -11,7 +11,6 @@ return new class extends Migration
         Schema::create('service_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('booking_id')->constrained('bookings')->cascadeOnDelete();
-            $table->foreignId('mechanic_id')->constrained('users')->cascadeOnDelete();
             $table->text('inspection')->nullable()->comment('Hasil pemeriksaan kendaraan');
             $table->text('work_description')->nullable()->comment('Deskripsi pekerjaan yang dilakukan');
             $table->text('sparepart_used')->nullable()->comment('Sparepart yang digunakan (JSON atau text)');

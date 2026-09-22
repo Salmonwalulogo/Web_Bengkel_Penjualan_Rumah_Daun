@@ -29,7 +29,7 @@ class UserController extends Controller
             'email' => 'required|email|unique:users',
             'username' => 'required|string|max:255|alpha_dash|unique:users,username',
             'password' => ['required', 'confirmed', Password::min(8)],
-            'role' => 'required|in:admin,mekanik,kasir,customer',
+            'role' => 'required|in:admin,kasir,customer',
             'no_hp' => 'nullable|string|max:20',
             'photo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
@@ -55,7 +55,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
             'username' => 'required|string|max:255|alpha_dash|unique:users,username,' . $user->id,
-            'role' => 'required|in:admin,mekanik,kasir,customer',
+            'role' => 'required|in:admin,kasir,customer',
             'no_hp' => 'nullable|string|max:20',
             'photo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'password' => ['nullable', 'confirmed', Password::min(8)],

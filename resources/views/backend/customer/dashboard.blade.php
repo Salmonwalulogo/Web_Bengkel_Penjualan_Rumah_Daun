@@ -4,11 +4,18 @@
 
 @section('content')
 <div class="container-fluid">
-    <h1 class="h3 mb-4 text-gray-800">Dashboard Customer</h1>
+    <div class="dashboard-hero customer-hero mb-4">
+        <div>
+            <span class="dashboard-eyebrow"><i class="fas fa-hand-sparkles me-2"></i>AREA PELANGGAN</span>
+            <h1>Hai, {{ auth()->user()->name }}!</h1>
+            <p>Rawat kendaraanmu dengan mudah. Booking servis, cek transaksi, dan pantau status kendaraan dari sini.</p>
+        </div>
+        <a href="{{ route('customer.booking.create') }}" class="dashboard-hero-action"><i class="fas fa-calendar-check me-2"></i>Booking Servis</a>
+    </div>
 
     <div class="row">
         <div class="col-md-4 mb-4">
-            <div class="card shadow h-100 py-2">
+            <div class="card stat-card-modern h-100">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -25,7 +32,7 @@
         </div>
 
         <div class="col-md-4 mb-4">
-            <div class="card shadow h-100 py-2">
+            <div class="card stat-card-modern h-100">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -42,7 +49,7 @@
         </div>
 
         <div class="col-md-4 mb-4">
-            <div class="card shadow h-100 py-2">
+            <div class="card stat-card-modern h-100">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -59,9 +66,11 @@
         </div>
     </div>
 
-    <div class="alert alert-success">
-        <i class="fas fa-check-circle me-2"></i>
-        Selamat datang, {{ auth()->user()->name }}! Mulai dengan booking servis atau lihat produk kami.
+    <div class="quick-actions mb-4">
+        <a href="{{ route('customer.booking.create') }}"><i class="fas fa-calendar-plus"></i><span>Booking Servis</span><small>Pilih jadwal dan layanan</small></a>
+        <a href="{{ route('customer.vehicles') }}"><i class="fas fa-motorcycle"></i><span>Kendaraan Saya</span><small>Kelola data kendaraan</small></a>
+        <a href="{{ route('produk') }}"><i class="fas fa-store"></i><span>Belanja Produk</span><small>Lihat suku cadang</small></a>
+        <a href="{{ route('customer.transactions') }}"><i class="fas fa-receipt"></i><span>Transaksi</span><small>Cek riwayat pembayaran</small></a>
     </div>
 </div>
 @endsection

@@ -102,7 +102,7 @@
             </button>
             <div class="ms-auto d-flex align-items-center">
                 <span class="me-3 text-gray-600">Halo, {{ auth()->user()->name }}</span>
-                <span class="badge bg-success">{{ auth()->user()->role_name }}</span>
+                <span class="badge bg-success">{{ ucfirst(auth()->user()->role) }}</span>
                 <span class="user-avatar ms-3">
                     @if(auth()->user()->photo)
                         <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="Foto {{ auth()->user()->name }}">

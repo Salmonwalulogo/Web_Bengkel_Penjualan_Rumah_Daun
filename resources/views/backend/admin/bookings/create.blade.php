@@ -44,15 +44,6 @@
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label class="form-label">Mekanik</label>
-                        <select name="mechanic_id" class="form-select">
-                            <option value="">Pilih Mekanik (Opsional)</option>
-                            @foreach($mechanics as $mek)
-                                <option value="{{ $mek->id }}" {{ old('mechanic_id') == $mek->id ? 'selected' : '' }}>{{ $mek->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="mb-3">
                         <label class="form-label">Tanggal Booking <span class="text-danger">*</span></label>
                         <input type="date" name="booking_date" class="form-control @error('booking_date') is-invalid @enderror" value="{{ old('booking_date') }}" required>
                         @error('booking_date')<div class="invalid-feedback">{{ $message }}</div>@enderror
@@ -69,7 +60,7 @@
                         <textarea name="complaint" class="form-control" rows="3">{{ old('complaint') }}</textarea>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Catatan Admin/Mekanik</label>
+                        <label class="form-label">Catatan Admin/Kasir</label>
                         <textarea name="notes" class="form-control" rows="3">{{ old('notes') }}</textarea>
                     </div>
                     <div class="mb-3">

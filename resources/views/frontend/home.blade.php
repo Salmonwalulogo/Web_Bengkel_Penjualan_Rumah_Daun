@@ -39,6 +39,7 @@
                 <a href="{{ route('layanan') }}" class="{{ request()->routeIs('layanan') ? 'active' : '' }}">Layanan</a>
                 <a href="{{ route('produk') }}" class="{{ request()->routeIs('produk') ? 'active' : '' }}">Produk</a>
                 <a href="{{ route('tentang') }}" class="{{ request()->routeIs('tentang') ? 'active' : '' }}">Tentang</a>
+                <a href="#lokasi">Lokasi</a>
                 <a href="{{ route('kontak') }}" class="{{ request()->routeIs('kontak') ? 'active' : '' }}">Kontak</a>
                 @auth
                     <a href="{{ url('/dashboard') }}" class="btn-nav btn-login">Dashboard</a>
@@ -297,6 +298,48 @@
         </div>
     </section>
 
+    <!-- Location Section -->
+    <section class="location-section" id="lokasi">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">
+                    <i class="bi bi-geo-alt-fill"></i> Lokasi Kami
+                </span>
+                <h2>Temukan <span>Rumah Daun</span></h2>
+                <p>Kunjungi bengkel kami untuk mendapatkan layanan servis motor terbaik.</p>
+            </div>
+            <div class="location-content">
+                <div class="location-info" data-aos="fade-right">
+                    <div class="location-icon">
+                        <i class="bi bi-pin-map-fill"></i>
+                    </div>
+                    <h3>Rumah Daun Bengkel Otomotif</h3>
+                    <p class="location-address">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        Desa Menia, Kecamatan Sabu Barat, Kabupaten Sabu Raijua, Nusa Tenggara Timur, Indonesia
+                    </p>
+                    <p class="location-hours">
+                        <i class="bi bi-clock-fill"></i>
+                        Senin - Sabtu, 08:00 - 17:00
+                    </p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Desa+Menia%2C+Kecamatan+Sabu+Barat%2C+Kabupaten+Sabu+Raijua%2C+Nusa+Tenggara+Timur%2C+Indonesia"
+                       class="btn-location" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-sign-turn-right-fill"></i>
+                        Buka di Google Maps
+                    </a>
+                </div>
+                <div class="location-map" data-aos="fade-left">
+                    <iframe
+                        src="https://www.google.com/maps?q=Desa+Menia%2C+Kecamatan+Sabu+Barat%2C+Kabupaten+Sabu+Raijua%2C+Nusa+Tenggara+Timur%2C+Indonesia&output=embed"
+                        title="Peta lokasi Rumah Daun Bengkel Otomotif"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
@@ -329,7 +372,7 @@
                 <div class="footer-bottom">
                     <p>&copy; {{ date('Y') }} Rumah Daun Bengkel Otomotif. All rights reserved.</p>
                     <p  class="page-style-10">
-                        <i class="bi bi-geo-alt me-2"></i>Jl. Rumah Daun No. 123, Jakarta
+                        <i class="bi bi-geo-alt me-2"></i>Desa Menia, Kecamatan Sabu Barat, Sabu Raijua
                         <span class="mx-3">|</span>
                         <i class="bi bi-telephone me-2"></i>0821-2462-6248
                     </p>

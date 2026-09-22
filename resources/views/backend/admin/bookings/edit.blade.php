@@ -66,21 +66,6 @@
 
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="mechanic_id" class="form-label">Mekanik</label>
-                        <select class="form-select @error('mechanic_id') is-invalid @enderror" id="mechanic_id" name="mechanic_id">
-                            <option value="">Pilih Mekanik (Opsional)</option>
-                            @foreach($mechanics as $mekanik)
-                                <option value="{{ $mekanik->id }}" {{ old('mechanic_id', $booking->mechanic_id) == $mekanik->id ? 'selected' : '' }}>
-                                    {{ $mekanik->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                        @error('mechanic_id')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
                         <label for="booking_date" class="form-label">Tanggal Booking <span class="text-danger">*</span></label>
                         <input type="date" class="form-control @error('booking_date') is-invalid @enderror" 
                                id="booking_date" name="booking_date" value="{{ old('booking_date', optional($booking->booking_date)->format('Y-m-d')) }}" required>
@@ -124,7 +109,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="notes" class="form-label">Catatan Admin/Mekanik</label>
+                        <label for="notes" class="form-label">Catatan Admin/Kasir</label>
                         <textarea class="form-control @error('notes') is-invalid @enderror" 
                                   id="notes" name="notes" rows="3">{{ old('notes', $booking->notes) }}</textarea>
                         @error('notes')

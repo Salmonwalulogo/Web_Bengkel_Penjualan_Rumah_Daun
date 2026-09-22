@@ -44,12 +44,6 @@ class User extends Authenticatable
         return $this->hasMany(Booking::class, 'user_id');
     }
 
-    // Booking sebagai mekanik
-    public function mechanicBookings()
-    {
-        return $this->hasMany(Booking::class, 'mechanic_id');
-    }
-
     // Transaksi user
     public function transactions()
     {
@@ -77,11 +71,6 @@ class User extends Authenticatable
     public function isCustomer()
     {
         return $this->role === 'customer';
-    }
-
-    public function isMekanik()
-    {
-        return $this->role === 'mekanik';
     }
 
     public function isKasir()

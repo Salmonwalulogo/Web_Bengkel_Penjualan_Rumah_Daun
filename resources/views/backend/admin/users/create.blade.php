@@ -61,7 +61,6 @@
                             <option value="">Pilih Role</option>
                             <option value="customer" {{ old('role') == 'customer' ? 'selected' : '' }}>Customer</option>
                             <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
-                            <option value="mekanik" {{ old('role') == 'mekanik' ? 'selected' : '' }}>Mekanik</option>
                             <option value="kasir" {{ old('role') == 'kasir' ? 'selected' : '' }}>Kasir</option>
                         </select>
                         @error('role')

@@ -54,7 +54,7 @@
                             </div>
                             <div>
                                 <h3>Alamat</h3>
-                                <p>Jl. Rumah Daun No. 123<br>Jakarta, Indonesia</p>
+                                <p>Desa Menia<br>Kecamatan Sabu Barat, Kabupaten Sabu Raijua<br>Nusa Tenggara Timur, Indonesia</p>
                             </div>
                         </div>
                         <div class="contact-item">

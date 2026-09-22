@@ -33,7 +33,6 @@
                 @php
                     $badgeClass = match($user->role) {
                         'admin' => 'bg-danger',
-                        'mekanik' => 'bg-info',
                         'kasir' => 'bg-warning',
                         'customer' => 'bg-success',
                         default => 'bg-secondary'

@@ -13,7 +13,6 @@ class Booking extends Model
         'user_id',
         'vehicle_id',
         'service_id',
-        'mechanic_id',
         'booking_date',
         'booking_time',
         'complaint',
@@ -43,12 +42,6 @@ class Booking extends Model
     public function service()
     {
         return $this->belongsTo(Service::class, 'service_id');
-    }
-
-    // Mekanik yang ditugaskan
-    public function mechanic()
-    {
-        return $this->belongsTo(User::class, 'mechanic_id');
     }
 
     // Detail servis

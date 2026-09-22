@@ -4,13 +4,14 @@
 @section('page-title', 'Dashboard Admin')
 
 @section('content')
-<div class="d-flex justify-content-between align-items-center mb-4">
+<div class="dashboard-hero admin-hero mb-4">
     <div>
-        <h2 class="mb-2 fw-bold">Dashboard Admin</h2>
-        <p class="text-muted mb-0">Selamat datang kembali, {{ auth()->user()->name }}! 👋</p>
+        <span class="dashboard-eyebrow"><i class="fas fa-sparkles me-2"></i>RUMAH DAUN CONTROL CENTER</span>
+        <h1>Selamat datang, {{ auth()->user()->name }}!</h1>
+        <p>Kelola operasional bengkel, pantau booking, dan lihat performa bisnis hari ini.</p>
     </div>
-    <a href="{{ route('admin.reports.index') }}" class="btn btn-primary">
-        <i class="fas fa-download me-2"></i>Generate Report
+    <a href="{{ route('admin.reports.index') }}" class="dashboard-hero-action">
+        <i class="fas fa-chart-line me-2"></i>Lihat Laporan
     </a>
 </div>
 
@@ -55,15 +56,17 @@
 </div>
 
 <!-- Welcome Alert -->
-<div class="alert alert-info border-0 shadow-sm">
-    <i class="fas fa-info-circle me-2"></i>
-    Selamat datang di panel admin. Statistik akan ditampilkan di sini setelah data tersedia.
+<div class="quick-actions mb-4">
+    <a href="{{ route('admin.bookings.create') }}"><i class="fas fa-calendar-plus"></i><span>Booking Baru</span><small>Tambah layanan</small></a>
+    <a href="{{ route('admin.products.create') }}"><i class="fas fa-box-open"></i><span>Tambah Produk</span><small>Kelola katalog</small></a>
+    <a href="{{ route('admin.users.create') }}"><i class="fas fa-user-plus"></i><span>Tambah User</span><small>Atur akses akun</small></a>
+    <a href="{{ route('admin.reports.index') }}"><i class="fas fa-file-export"></i><span>Export Laporan</span><small>Ringkasan bisnis</small></a>
 </div>
 
 <!-- Recent Activity -->
 <div class="row g-4">
     <div class="col-md-6">
-        <div class="card">
+        <div class="card dashboard-panel">
             <div class="card-header">
                 <i class="fas fa-calendar-check me-2"></i>Booking Terbaru
             </div>
@@ -86,7 +89,7 @@
     </div>
 
     <div class="col-md-6">
-        <div class="card">
+        <div class="card dashboard-panel">
             <div class="card-header">
                 <i class="fas fa-receipt me-2"></i>Transaksi Terbaru
             </div>
